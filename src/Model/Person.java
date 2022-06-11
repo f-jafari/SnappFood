@@ -1,14 +1,18 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class Person {
+
+    public static ArrayList<Person> people = new ArrayList<>();
 
     private String name ;
     private String lastName ;
     private String email ;
     private String password ;
-    private int phoneNumber ;
+    private String phoneNumber ;
 
-    public Person(String name, String lastName, String email, String password, int phoneNumber , int wallet) {
+    public Person(String name, String lastName, String email, String password, String phoneNumber ) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
@@ -53,11 +57,11 @@ public class Person {
         this.password = password;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

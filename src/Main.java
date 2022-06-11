@@ -1,4 +1,5 @@
 import Model.Admin;
+import Model.Person;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -31,5 +32,6 @@ public class Main extends Application {
         Admin admin = new Admin();
         admin.setEmail("admin@gmail.com");
         admin.setPassword("12345678");
+        Person.people.add( (Person) admin);
     }
 }
