@@ -12,39 +12,39 @@
 
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #cc99ff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-    <children>
-        <VBox alignment="CENTER" layoutX="78.0" layoutY="46.0" prefHeight="308.0" prefWidth="444.0" spacing="10.0">
-            <children>
-                <TextField promptText="Username" />
-                <PasswordField promptText="Password" />
-                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Login">
-                    <VBox.margin>
-                        <Insets top="10.0" />
-                    </VBox.margin>
-                </Button>
-                <Label alignment="CENTER" prefHeight="26.0" prefWidth="193.0" text="Don't have an account?" textFill="#0e004d">
-                    <padding>
-                        <Insets top="10.0" />
-                    </padding>
-                    <font>
-                        <Font name="Berlin Sans FB" size="14.0" />
-                    </font>
-                    <VBox.margin>
-                        <Insets top="20.0" />
-                    </VBox.margin>
-                </Label>
-                <Hyperlink alignment="TOP_CENTER" prefHeight="26.0" prefWidth="74.0" text="Sign up">
-                    <font>
-                        <Font name="System Bold" size="13.0" />
-                    </font>
-                    <VBox.margin>
-                        <Insets />
-                    </VBox.margin>
-                </Hyperlink>
-            </children>
-            <padding>
-                <Insets left="130.0" right="130.0" />
-            </padding>
-        </VBox>
-    </children>
+   <children>
+      <VBox alignment="CENTER" layoutX="78.0" layoutY="46.0" prefHeight="308.0" prefWidth="444.0" spacing="10.0">
+         <children>
+            <TextField promptText="Username" />
+            <PasswordField promptText="Password" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Login">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Label alignment="CENTER" prefHeight="26.0" prefWidth="193.0" text="Don't have an account?" textFill="#0e004d">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Hyperlink alignment="TOP_CENTER" prefHeight="26.0" prefWidth="74.0" text="Sign up">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Hyperlink>
+         </children>
+         <padding>
+            <Insets left="130.0" right="130.0" />
+         </padding>
+      </VBox>
+   </children>
 </AnchorPane>
