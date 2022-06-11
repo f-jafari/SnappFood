@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
@@ -12,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffc933;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffc933;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.loginPageController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -21,9 +27,9 @@
       </ImageView>
       <VBox alignment="CENTER" layoutX="78.0" layoutY="46.0" prefHeight="308.0" prefWidth="444.0" spacing="10.0">
          <children>
-            <TextField promptText="Username" />
-            <PasswordField promptText="Password" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Login">
+            <TextField fx:id="usernameFLD" promptText="Username" />
+            <PasswordField fx:id="passwordFLD" promptText="Password" />
+            <Button fx:id="loginBTN" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Login">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -44,7 +50,7 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </Label>
-            <Hyperlink alignment="TOP_CENTER" prefHeight="33.0" prefWidth="117.0" text="Sign up" textFill="#7977d3">
+            <Hyperlink fx:id="signUPLink" alignment="TOP_CENTER" prefHeight="33.0" prefWidth="117.0" text="Sign up" textFill="#7977d3">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
