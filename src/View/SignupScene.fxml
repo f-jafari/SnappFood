@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #cc99ff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SignUpController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #cc99ff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox alignment="CENTER" layoutX="61.0" layoutY="67.0" prefHeight="267.0" prefWidth="461.0" spacing="10.0">
+      <ImageView fitHeight="400.0" fitWidth="624.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Style/Login.jpg" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER" layoutX="78.0" layoutY="67.0" prefHeight="267.0" prefWidth="444.0" spacing="10.0">
          <children>
             <TextField fx:id="firstNameFLD" promptText="First Name" />
             <TextField fx:id="lastNameFLD" promptText="Last Name" />
@@ -24,7 +29,11 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
-            <Label fx:id="errorLBL" alignment="CENTER" prefHeight="39.0" prefWidth="201.0" />
+            <Label fx:id="errorLBL" alignment="CENTER" prefHeight="40.0" prefWidth="184.0">
+               <font>
+                  <Font name="Candara" size="14.0" />
+               </font>
+            </Label>
          </children>
          <padding>
             <Insets left="130.0" right="130.0" />
