@@ -29,12 +29,4 @@ public class Place {
     public void setAddress(String address) {
         this.address = address;
     }
-
-    @Override
-    public String toString() {
-        return "Place{" +
-                "name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                '}';
-    }
 }

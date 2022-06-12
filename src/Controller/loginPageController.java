@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Admin;
 import Model.Person;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,12 +52,36 @@ public class loginPageController implements Initializable {
         loginBTN.setOnAction( e -> {
             if(!usernameFLD.getText().isEmpty() && !passwordFLD.getText().isEmpty())
             {
+
+                Boolean loginScale = false ;
                 for (Person person : Person.people)
                 {
                     if (person.getEmail().equals(usernameFLD.getText()) && person.getPassword().equals(passwordFLD.getText()))
                     {
-                        System.out.println("Correct");
+                        loginScale = true ;
+                        if (person instanceof Admin)
+                        {
+                            try {
+
+                                Parent root = FXMLLoader.load(getClass().getResource("/View/adminAccountPage.fxml"));
+                                Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+                                Scene scene = new Scene(root);
+                                stage.setScene(scene);
+                                stage.show();
+
+                            } catch(Exception ex) {
+                                ex.printStackTrace();
+                            }
+                        }
+                        break;
                     }
+                }
+
+                if (!loginScale)
+                {
+                    errorLBL.setTextFill(Color.RED);
+                    errorLBL.setText("Your username does not exist or password is wrong!!\nHmm.. Forget Your Password?!");
+                    errorLBL.setStyle("-fx-border-color: red");
                 }
             }
             else

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Restaurant extends Place{
 
+    public static ArrayList<Restaurant> restaurants = new ArrayList<>();
+
     private ArrayList<FoodCategory> foodCategories = new ArrayList<>();
 
     public ArrayList<FoodCategory> getFoodCategories() {
