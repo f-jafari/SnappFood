@@ -63,12 +63,12 @@
                   </VBox>
                   <VBox alignment="CENTER" layoutX="260.0" layoutY="10.0" prefHeight="438.0" prefWidth="127.0" spacing="5.0">
                      <children>
-                        <Button fx:id="addCafeCol" mnemonicParsing="false" text="Add a Cafe ">
+                        <Button fx:id="addCafeBTN" mnemonicParsing="false" text="Add a Cafe ">
                            <font>
                               <Font size="11.0" />
                            </font>
                         </Button>
-                        <Button fx:id="openCafeCol" layoutX="39.0" layoutY="183.0" mnemonicParsing="false" text="Open">
+                        <Button fx:id="openCafeBTN" layoutX="39.0" layoutY="183.0" mnemonicParsing="false" text="Open">
                            <font>
                               <Font size="11.0" />
                            </font>

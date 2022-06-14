@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Cafe;
 import Model.Restaurant;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,23 +33,23 @@ public class AdminPage implements Initializable {
 
 
     @FXML
-    private TableColumn<?, ?> cafeNameCol;
+    private TableColumn<Cafe,String> cafeNameCol;
 
     @FXML
-    private TableColumn<?, ?> cafeAddressCol;
+    private TableColumn<Cafe, String> cafeAddressCol;
 
 
     @FXML
     private Button OpenRestaurantBTN;
 
     @FXML
-    private Button openCafeCol;
+    private Button openCafeBTN;
 
     @FXML
-    private TableView<?> cafeTable;
+    private TableView<Cafe> cafeTable;
 
     @FXML
-    private Button addCafeCol;
+    private Button addCafeBTN;
 
 
     @Override
@@ -78,6 +79,11 @@ public class AdminPage implements Initializable {
         });
 
         //--in cafe tab--
+        //init table
+        cafeNameCol.setCellValueFactory(new PropertyValueFactory<Cafe,String>("name"));
+        cafeAddressCol.setCellValueFactory(new PropertyValueFactory<Cafe,String>("Address"));
+        cafeTable.getItems().addAll(Cafe.cafes);
+
 
     }
 }
