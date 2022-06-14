@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:controller="Controller.MainPageController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainPageController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -33,6 +33,11 @@
                </font>
             </Button>
             <Button fx:id="signUpBTN" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" opacity="0.75" prefHeight="25.0" prefWidth="145.0" style="-fx-background-color: transparent; -fx-border-color: #040273;" text="Sign up">
+               <font>
+                  <Font name="Candara" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="exitBTN" alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="170.0" mnemonicParsing="false" opacity="0.75" prefHeight="25.0" prefWidth="145.0" style="-fx-background-color: transparent; -fx-border-color: #040273;" text="Exit">
                <font>
                   <Font name="Candara" size="14.0" />
                </font>

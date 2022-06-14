@@ -51,6 +51,8 @@ public class AdminPage implements Initializable {
     @FXML
     private Button addCafeBTN;
 
+    @FXML
+    private Button backToMainBTN;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -59,6 +61,20 @@ public class AdminPage implements Initializable {
         restaurantNameCol.setCellValueFactory(new PropertyValueFactory<Restaurant,String>("name"));
         restaurantAddressCol.setCellValueFactory(new PropertyValueFactory<Restaurant,String>("address"));
         restaurantTableView.getItems().addAll(Restaurant.restaurants);
+
+        backToMainBTN.setOnAction( e -> {
+            try {
+
+                Parent root = FXMLLoader.load(getClass().getResource("/View/mainScene.fxml"));
+                Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
+            } catch(Exception ex) {
+                ex.printStackTrace();
+            }
+        });
 
         addRestaurantBTN.setOnAction(e -> {
             try {
@@ -80,7 +96,7 @@ public class AdminPage implements Initializable {
             {
                 try {
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/openRestaurantPage.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/openRestaurantOrCafePage.fxml"));
                     OpenRestaurantController controller = new OpenRestaurantController();
                     controller.initRestaurant(chosenRestaurant);
                     loader.setController(controller);
@@ -123,7 +139,7 @@ public class AdminPage implements Initializable {
             {
                 try {
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/openRestaurantPage.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/openRestaurantOrCafePage.fxml"));
                     OpenCafeController controller = new OpenCafeController();
                     controller.initCafe(chosenCafe);
                     loader.setController(controller);

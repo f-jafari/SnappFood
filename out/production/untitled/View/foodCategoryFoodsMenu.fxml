@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="10.0" left="80.0" right="80.0" top="10.0" />
+   </padding>
+   <children>
+      <Label fx:id="foodCategoryNameLBL" alignment="CENTER" prefHeight="17.0" prefWidth="511.0" text="food name" />
+      <TableView fx:id="FoodsTable" prefHeight="283.0" prefWidth="440.0">
+        <columns>
+          <TableColumn fx:id="nameCol" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="PriceCol" prefWidth="75.0" text="Price" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="6.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="4.0">
+               <children>
+                  <TextField fx:id="foodNameFLD" promptText="name" />
+                  <TextField fx:id="priceFLD" layoutX="10.0" layoutY="31.0" promptText="price" />
+               </children>
+            </VBox>
+            <Button fx:id="addBTN" mnemonicParsing="false" text="Add" />
+            <Button fx:id="backBTN" layoutX="289.0" layoutY="31.0" mnemonicParsing="false" text="Back" />
+         </children>
+      </HBox>
+      <Label fx:id="errorLBL" alignment="CENTER" layoutX="90.0" layoutY="90.0" prefHeight="33.0" prefWidth="440.0" text="error" />
+   </children>
+</VBox>

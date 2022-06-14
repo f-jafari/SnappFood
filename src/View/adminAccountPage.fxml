@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -9,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="653.0" style="-fx-background-color: #ffbb00;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminPage">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="653.0" style="-fx-background-color: #ffbb00;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminPage">
   <tabs>
     <Tab text="Restaurant">
          <content>
@@ -36,6 +41,11 @@
                            </font>
                         </Button>
                         <Button fx:id="OpenRestaurantBTN" layoutX="39.0" layoutY="183.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="Open">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="backToMainBTN" layoutX="21.0" layoutY="234.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="Back">
                            <font>
                               <Font size="11.0" />
                            </font>

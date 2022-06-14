@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Main extends Application {
     public static void main(String[] args) {
@@ -18,8 +19,11 @@ public class Main extends Application {
 			
 			Parent root = FXMLLoader.load(getClass().getResource("/View/mainScene.fxml"));
 			Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("View/Style/MainPage.css").toExternalForm());
 			stage.setTitle("SnappFood");
 			stage.setScene(scene);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.initStyle(StageStyle.UNDECORATED);
 			stage.show();
 			
 		} catch(Exception e) {

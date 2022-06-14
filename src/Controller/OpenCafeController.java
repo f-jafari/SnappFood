@@ -2,18 +2,16 @@ package Controller;
 
 import Model.Cafe;
 import Model.FoodCategory;
-import Model.Restaurant;
+import Model.FoodType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -43,11 +41,11 @@ public class OpenCafeController implements Initializable {
     private Button OpenBTN;
 
     private Cafe cafe ;
+    @FXML
+    private TextField foodCategoryFLD;
 
-    public void initCafe(Cafe cafe)
-    {
-        this.cafe = cafe ;
-    }
+    @FXML
+    private Label errorLBL;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -71,5 +69,80 @@ public class OpenCafeController implements Initializable {
                 ex.printStackTrace();
             }
         });
+
+        addBTN.setOnAction( e -> {
+            if(!foodCategoryFLD.getText().isEmpty())
+            {
+                if (!addedBefore())
+                {
+                    errorLBL.setTextFill(Color.RED);
+                    errorLBL.setText("added before");
+                    errorLBL.setStyle("-fx-border-color: red");
+                }
+                else {
+                    errorLBL.setTextFill(Color.GREEN);
+                    errorLBL.setText("Done");
+                    errorLBL.setStyle("-fx-border-color: green");
+                    FoodCategory foodCategory = new FoodCategory();
+                    foodCategory.setName(foodCategoryFLD.getText());
+                    foodCategory.setFoodType(FoodType.CAFE_FOOD);
+                    cafe.getFoodCategories().add(foodCategory);
+                    refresh();
+                }
+            }
+            else {
+
+                errorLBL.setTextFill(Color.RED);
+                errorLBL.setText("You Have Empty Field");
+                errorLBL.setStyle("-fx-border-color: red");
+            }
+        });
+
+        OpenBTN.setOnAction( e -> {
+            FoodCategory chosenFoodCategory = FoodCategoryTable.getSelectionModel().getSelectedItem();
+            if (chosenFoodCategory != null)
+            {
+                try {
+
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/foodCategoryFoodsMenu.fxml"));
+                    FoodCategoryMenuController controller = new FoodCategoryMenuController();
+                    controller.initFoodCategory(chosenFoodCategory);
+                    loader.setController(controller);
+                    loader.load();
+                    Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+                    Scene scene = new Scene(loader.getRoot());
+                    stage.setScene(scene);
+                    stage.show();
+
+                } catch(Exception ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+
+        });
+
     }
+
+    public boolean addedBefore()
+    {
+
+        for (FoodCategory foodCategory: cafe.getFoodCategories())
+        {
+            if (foodCategory.getName().equals(foodCategoryFLD.getText()))
+                return false ;
+        }
+        return true ;
+    }
+
+    public void refresh()
+    {
+        FoodCategoryTable.getItems().clear();
+        FoodCategoryTable.getItems().addAll(cafe.getFoodCategories());
+    }
+
+    public void initCafe(Cafe cafe)
+    {
+        this.cafe = cafe ;
+    }
+
 }

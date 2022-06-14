@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffc933;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.loginPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffc933;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginPageController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -29,11 +29,12 @@
          <children>
             <TextField fx:id="usernameFLD" promptText="Username" />
             <PasswordField fx:id="passwordFLD" promptText="Password" />
-            <Button fx:id="loginBTN" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Login">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </Button>
+            <HBox alignment="CENTER" prefHeight="37.0" prefWidth="184.0" spacing="5.0">
+               <children>
+                  <Button fx:id="loginBTN" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Login" />
+                  <Button fx:id="backBTN" layoutX="74.0" layoutY="46.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Back" />
+               </children>
+            </HBox>
             <Label fx:id="errorLBL" alignment="CENTER" prefHeight="33.0" prefWidth="184.0">
                <font>
                   <Font name="Candara" size="14.0" />

@@ -11,11 +11,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class loginPageController implements Initializable {
+public class LoginPageController implements Initializable {
 
     @FXML
     private TextField usernameFLD;
@@ -32,6 +33,10 @@ public class loginPageController implements Initializable {
     @FXML
     private Label errorLBL;
 
+    @FXML
+    private Button backBTN;
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -42,6 +47,8 @@ public class loginPageController implements Initializable {
                 Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
+                stage.initStyle(StageStyle.UTILITY);
+                stage.initStyle(StageStyle.UNDECORATED);
                 stage.show();
 
             } catch(Exception ex) {
@@ -92,5 +99,22 @@ public class loginPageController implements Initializable {
             }
         });
 
+        backBTN.setOnAction(e -> {
+            try {
+
+                Parent root = FXMLLoader.load(getClass().getResource("/View/mainScene.fxml"));
+                Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.initStyle(StageStyle.UTILITY);
+                stage.initStyle(StageStyle.UNDECORATED);
+                stage.show();
+
+            } catch(Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+
     }
+
 }
