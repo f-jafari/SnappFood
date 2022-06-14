@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+  <tabs>
+    <Tab text="Account">
+         <content>
+            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="2.0">
+               <children>
+                  <Label fx:id="nameLBL" prefHeight="17.0" prefWidth="294.0" text="name :" />
+                  <Label fx:id="lastNameLBL" layoutX="163.0" layoutY="187.0" prefHeight="17.0" prefWidth="294.0" text="lastname :" />
+                  <Label fx:id="emailLBL" layoutX="163.0" layoutY="196.0" prefHeight="17.0" prefWidth="294.0" text="email :" />
+                  <Label fx:id="phoneNumberLBL" layoutX="163.0" layoutY="204.0" prefHeight="17.0" prefWidth="294.0" text="phoneNumber :" />
+                  <Label fx:id="walletLBL" layoutX="163.0" layoutY="213.0" prefHeight="17.0" prefWidth="294.0" text="wallet" />
+                  <TableView fx:id="codesTable" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn fx:id="codesCol" prefWidth="75.0" text="Code" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <Button fx:id="exitBTN" mnemonicParsing="false" text="exit">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets left="4.0" right="4.0" />
+               </padding>
+            </VBox>
+         </content>
+    </Tab>
+    <Tab text="Order  Food">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+      </content>
+    </Tab>
+      <Tab text="Order List">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+         </content>
+      </Tab>
+      <Tab text="Invite Friends">
+         <content>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="357.0" text="Enter  your Friend Email :" />
+                  <TextField fx:id="inviteFriendFLD" />
+                  <Button fx:id="inviteFriendBTN" mnemonicParsing="false" text="Done" />
+                  <Label fx:id="inviteErrorLBL" alignment="CENTER" layoutX="132.0" layoutY="152.0" prefHeight="17.0" prefWidth="357.0" text="e" />
+               </children>
+               <padding>
+                  <Insets left="80.0" right="80.0" />
+               </padding>
+            </VBox>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>

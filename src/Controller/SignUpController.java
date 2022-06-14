@@ -2,12 +2,18 @@ package Controller;
 
 import Model.Client;
 import Model.Person;
+import Model.ReadAndWriteInFile;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
@@ -65,6 +71,22 @@ public class SignUpController implements Initializable {
                                     client.setPassword(passwordFLD.getText());
                                     client.setWallet(0);
                                     Person.people.add((Person) client);
+                                    ReadAndWriteInFile.WriteObjectToFile(); //save information
+                                    try {
+
+                                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/clientAccountPage.fxml"));
+                                        ClientAccountController controller = new ClientAccountController();
+                                        controller.initLoggedUser(client);
+                                        loader.setController(controller);
+                                        loader.load();
+                                        Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+                                        Scene scene = new Scene(loader.getRoot());
+                                        stage.setScene(scene);
+                                        stage.show();
+
+                                    } catch(Exception ex) {
+                                        System.out.println(ex.getMessage());
+                                    }
                                 }
 
                             }
@@ -119,4 +141,6 @@ public class SignUpController implements Initializable {
         }
         return true ;
     }
+
+
 }

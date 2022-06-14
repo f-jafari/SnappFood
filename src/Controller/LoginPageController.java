@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Admin;
+import Model.Client;
 import Model.Person;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -78,6 +79,24 @@ public class LoginPageController implements Initializable {
 
                             } catch(Exception ex) {
                                 ex.printStackTrace();
+                            }
+                        }
+                        if(person instanceof Client)
+                        {
+                            try {
+
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/clientAccountPage.fxml"));
+                                ClientAccountController controller = new ClientAccountController();
+                                controller.initLoggedUser((Client) person);
+                                loader.setController(controller);
+                                loader.load();
+                                Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+                                Scene scene = new Scene(loader.getRoot());
+                                stage.setScene(scene);
+                                stage.show();
+
+                            } catch(Exception ex) {
+                                System.out.println(ex.getMessage());
                             }
                         }
                         break;

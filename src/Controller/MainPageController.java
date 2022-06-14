@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.ReadAndWriteInFile;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,6 +35,9 @@ public class MainPageController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        ReadAndWriteInFile.createFileToSaveInfo();
+        ReadAndWriteInFile.ReadObjectFromFile();
+
         loginBTN.setOnAction( e -> {
             try {
 
@@ -57,8 +61,10 @@ public class MainPageController implements Initializable {
                 Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
+
                 stage.initStyle(StageStyle.UTILITY);
                 stage.initStyle(StageStyle.UNDECORATED);
+
                 stage.show();
 
             } catch(Exception ex) {
@@ -68,12 +74,14 @@ public class MainPageController implements Initializable {
 
 
         exitBTN.setOnAction( e -> {
+
             Stage stage ;
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Exit");
             alert.setHeaderText("You're about to exit!");
             if (alert.showAndWait().get() == ButtonType.OK)
             {
+                ReadAndWriteInFile.WriteObjectToFile(); //save information
                 stage = (Stage) scenePane.getScene().getWindow();
                 stage.close();
             }
