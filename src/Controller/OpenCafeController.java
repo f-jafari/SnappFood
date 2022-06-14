@@ -1,6 +1,8 @@
 package Controller;
 
+import Model.Cafe;
 import Model.FoodCategory;
+import Model.Restaurant;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,12 +13,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class openRestaurantController implements Initializable {
+public class OpenCafeController implements Initializable {
+
     @FXML
     private TableView<FoodCategory> FoodCategoryTable;
 
@@ -38,8 +42,22 @@ public class openRestaurantController implements Initializable {
     @FXML
     private Button OpenBTN;
 
+    private Cafe cafe ;
+
+    public void initCafe(Cafe cafe)
+    {
+        this.cafe = cafe ;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //init cols and table
+        FoodCategoryCol.setCellValueFactory(new PropertyValueFactory<FoodCategory,String>("name"));
+        FoodCategoryTable.getItems().addAll(cafe.getFoodCategories());
+        //init labels
+        nameLBL.setText(cafe.getName());
+        addressLBL.setText(cafe.getAddress());
+
         backBTN.setOnAction( e -> {
             try {
 
