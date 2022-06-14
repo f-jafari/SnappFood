@@ -75,16 +75,24 @@ public class AdminPage implements Initializable {
         });
 
         OpenRestaurantBTN.setOnAction( e -> {
-            try {
+            Restaurant chosenRestaurant = restaurantTableView.getSelectionModel().getSelectedItem();
+            if (chosenRestaurant != null)
+            {
+                try {
 
-                Parent root = FXMLLoader.load(getClass().getResource("/View/openRestaurantPage.fxml"));
-                Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/openRestaurantPage.fxml"));
+                    OpenRestaurantController controller = new OpenRestaurantController();
+                    controller.initRestaurant(chosenRestaurant);
+                    loader.setController(controller);
+                    loader.load();
+                    Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+                    Scene scene = new Scene(loader.getRoot());
+                    stage.setScene(scene);
+                    stage.show();
 
-            } catch(Exception ex) {
-                ex.printStackTrace();
+                } catch(Exception ex) {
+                    System.out.println(ex.getMessage());
+                }
             }
         });
 
@@ -108,5 +116,27 @@ public class AdminPage implements Initializable {
             }
         });
 
+        openCafeBTN.setOnAction( e -> {
+            Cafe chosenCafe = cafeTable.getSelectionModel().getSelectedItem();
+
+            if (chosenCafe != null)
+            {
+                try {
+
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/openRestaurantPage.fxml"));
+                    OpenCafeController controller = new OpenCafeController();
+                    controller.initCafe(chosenCafe);
+                    loader.setController(controller);
+                    loader.load();
+                    Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+                    Scene scene = new Scene(loader.getRoot());
+                    stage.setScene(scene);
+                    stage.show();
+
+                } catch(Exception ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+        });
     }
 }
