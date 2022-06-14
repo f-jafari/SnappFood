@@ -75,7 +75,17 @@ public class AdminPage implements Initializable {
         });
 
         OpenRestaurantBTN.setOnAction( e -> {
+            try {
 
+                Parent root = FXMLLoader.load(getClass().getResource("/View/openRestaurantPage.fxml"));
+                Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
+            } catch(Exception ex) {
+                ex.printStackTrace();
+            }
         });
 
         //--in cafe tab--
@@ -84,6 +94,19 @@ public class AdminPage implements Initializable {
         cafeAddressCol.setCellValueFactory(new PropertyValueFactory<Cafe,String>("Address"));
         cafeTable.getItems().addAll(Cafe.cafes);
 
+        addCafeBTN.setOnAction( e -> {
+            try {
+
+                Parent root = FXMLLoader.load(getClass().getResource("/View/addCafePage.fxml"));
+                Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
+            } catch(Exception ex) {
+                ex.printStackTrace();
+            }
+        });
 
     }
 }
