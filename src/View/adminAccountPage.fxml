@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TabPane fx:controller="Controller.AddRestaurantPaneController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="653.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="653.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminPage">
   <tabs>
     <Tab text="Restaurant">
          <content>
@@ -17,8 +17,8 @@
                      <children>
                         <TableView fx:id="restaurantTableView" prefHeight="357.0" prefWidth="465.0">
                           <columns>
-                            <TableColumn fx:id="nameCol" prefWidth="75.0" text="Name" />
-                            <TableColumn fx:id="addressCol" prefWidth="75.0" text="Address" />
+                            <TableColumn fx:id="restaurantNameCol" prefWidth="75.0" text="Name" />
+                            <TableColumn fx:id="restaurantAddressCol" prefWidth="75.0" text="Address" />
                           </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -33,7 +33,7 @@
                               <Font size="11.0" />
                            </font>
                         </Button>
-                        <Button fx:id="addFoodCategoryBTN" layoutX="39.0" layoutY="183.0" mnemonicParsing="false" text="Add a FoodCategory ">
+                        <Button fx:id="OpenRestaurantBTN" layoutX="39.0" layoutY="183.0" mnemonicParsing="false" text="Open">
                            <font>
                               <Font size="11.0" />
                            </font>
@@ -50,25 +50,25 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="371.0" prefWidth="482.0">
                      <children>
-                        <TableView prefHeight="357.0" prefWidth="465.0">
+                        <TableView fx:id="cafeTable" prefHeight="357.0" prefWidth="465.0">
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                            <columns>
-                              <TableColumn prefWidth="75.0" text="C1" />
-                              <TableColumn prefWidth="75.0" text="C2" />
+                              <TableColumn fx:id="cafeNameCol" prefWidth="75.0" text="Name" />
+                              <TableColumn fx:id="cafeAddressCol" prefWidth="75.0" text="Address" />
                            </columns>
                         </TableView>
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" layoutX="260.0" layoutY="10.0" prefHeight="438.0" prefWidth="127.0" spacing="5.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Add a Cafe ">
+                        <Button fx:id="addCafeCol" mnemonicParsing="false" text="Add a Cafe ">
                            <font>
                               <Font size="11.0" />
                            </font>
                         </Button>
-                        <Button layoutX="39.0" layoutY="183.0" mnemonicParsing="false" text="Add a FoodCategory ">
+                        <Button fx:id="openCafeCol" layoutX="39.0" layoutY="183.0" mnemonicParsing="false" text="Open">
                            <font>
                               <Font size="11.0" />
                            </font>

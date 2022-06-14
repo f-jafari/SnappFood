@@ -16,29 +16,47 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AddRestaurantPaneController implements Initializable {
+public class AdminPage implements Initializable {
 
     @FXML
     private TableView<Restaurant> restaurantTableView;
 
     @FXML
-    private TableColumn<Restaurant, String> addressCol;
+    private TableColumn<Restaurant, String> restaurantAddressCol;
 
     @FXML
     private Button addRestaurantBTN;
 
     @FXML
-    private TableColumn<Restaurant, String> nameCol;
+    private TableColumn<Restaurant, String> restaurantNameCol;
+
 
     @FXML
-    private Button addFoodCategoryBTN;
+    private TableColumn<?, ?> cafeNameCol;
+
+    @FXML
+    private TableColumn<?, ?> cafeAddressCol;
+
+
+    @FXML
+    private Button OpenRestaurantBTN;
+
+    @FXML
+    private Button openCafeCol;
+
+    @FXML
+    private TableView<?> cafeTable;
+
+    @FXML
+    private Button addCafeCol;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //--in restaurant tab--
         //init cols
-        nameCol.setCellValueFactory(new PropertyValueFactory<Restaurant,String>("name"));
-        addressCol.setCellValueFactory(new PropertyValueFactory<Restaurant,String>("address"));
+        restaurantNameCol.setCellValueFactory(new PropertyValueFactory<Restaurant,String>("name"));
+        restaurantAddressCol.setCellValueFactory(new PropertyValueFactory<Restaurant,String>("address"));
         restaurantTableView.getItems().addAll(Restaurant.restaurants);
 
         addRestaurantBTN.setOnAction(e -> {
@@ -55,10 +73,11 @@ public class AddRestaurantPaneController implements Initializable {
             }
         });
 
-        addFoodCategoryBTN.setOnAction( e -> {
+        OpenRestaurantBTN.setOnAction( e -> {
 
         });
 
         //--in cafe tab--
+
     }
 }
