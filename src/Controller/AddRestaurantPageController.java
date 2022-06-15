@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Place;
 import Model.Restaurant;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -57,7 +58,7 @@ public class AddRestaurantPageController implements Initializable {
                     Restaurant restaurant = new Restaurant();
                     restaurant.setName(nameFLD.getText());
                     restaurant.setAddress(addressFLD.getText());
-                    Restaurant.restaurants.add(restaurant);
+                    Place.places.add(restaurant);
 
                     //load admin page
                     try {
@@ -84,14 +85,17 @@ public class AddRestaurantPageController implements Initializable {
 
     public Boolean shouldAdd()
     {
-        for (Restaurant restaurant : Restaurant.restaurants)
+        for (Place place : Place.places)
         {
-            if (restaurant.getAddress().equals(addressFLD.getText()) && restaurant.getName().equals(nameFLD.getText()))
+            if (place instanceof Restaurant)
             {
-                errorLBL.setTextFill(Color.RED);
-                errorLBL.setText("added before");
-                errorLBL.setStyle("-fx-border-color: red");
-                return false ;
+                if (place.getAddress().equals(addressFLD.getText()) && place.getName().equals(nameFLD.getText()))
+                {
+                    errorLBL.setTextFill(Color.RED);
+                    errorLBL.setText("added before");
+                    errorLBL.setStyle("-fx-border-color: red");
+                    return false ;
+                }
             }
         }
         return true;

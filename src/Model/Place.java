@@ -1,6 +1,11 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class Place {
+
+    public static ArrayList<Place> places = new ArrayList<>();
+
 
     private String name ;
     private String address ;

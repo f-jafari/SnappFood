@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Cafe;
+import Model.Place;
 import Model.Restaurant;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import org.omg.IOP.CodecFactory;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -37,14 +39,17 @@ public class AddCafePageController implements Initializable {
 
     public Boolean shouldAdd()
     {
-        for (Cafe cafe : Cafe.cafes)
+        for (Place place : Place.places)
         {
-            if (cafe.getAddress().equals(addressFLD.getText()) && cafe.getName().equals(nameFLD.getText()))
+            if (place instanceof Cafe)
             {
-                errorLBL.setTextFill(Color.RED);
-                errorLBL.setText("added before");
-                errorLBL.setStyle("-fx-border-color: red");
-                return false ;
+                if (place.getAddress().equals(addressFLD.getText()) && place.getName().equals(nameFLD.getText()))
+                {
+                    errorLBL.setTextFill(Color.RED);
+                    errorLBL.setText("added before");
+                    errorLBL.setStyle("-fx-border-color: red");
+                    return false ;
+                }
             }
         }
         return true;
@@ -76,7 +81,7 @@ public class AddCafePageController implements Initializable {
                     Cafe cafe = new Cafe();
                     cafe.setName(nameFLD.getText());
                     cafe.setAddress(addressFLD.getText());
-                    Cafe.cafes.add(cafe);
+                    Place.places.add(cafe);
 
                     //load admin page
                     try {

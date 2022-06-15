@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Cafe;
+import Model.Place;
 import Model.Restaurant;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -60,7 +61,12 @@ public class AdminPage implements Initializable {
         //init cols
         restaurantNameCol.setCellValueFactory(new PropertyValueFactory<Restaurant,String>("name"));
         restaurantAddressCol.setCellValueFactory(new PropertyValueFactory<Restaurant,String>("address"));
-        restaurantTableView.getItems().addAll(Restaurant.restaurants);
+        //restaurantTableView.getItems().addAll(Restaurant.restaurants);
+        for (Place place : Place.places)
+        {
+            if (place instanceof Restaurant)
+                restaurantTableView.getItems().add((Restaurant) place);
+        }
 
         backToMainBTN.setOnAction( e -> {
             try {
@@ -116,7 +122,12 @@ public class AdminPage implements Initializable {
         //init table
         cafeNameCol.setCellValueFactory(new PropertyValueFactory<Cafe,String>("name"));
         cafeAddressCol.setCellValueFactory(new PropertyValueFactory<Cafe,String>("Address"));
-        cafeTable.getItems().addAll(Cafe.cafes);
+        //cafeTable.getItems().addAll(Cafe.cafes);
+        for (Place place : Place.places)
+        {
+            if (place instanceof Cafe)
+                cafeTable.getItems().add((Cafe) place);
+        }
 
         addCafeBTN.setOnAction( e -> {
             try {

@@ -1,10 +1,13 @@
 package Controller;
 
-import Model.Client;
-import Model.ReadAndWriteInFile;
+import Model.*;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -20,20 +23,36 @@ import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
 public class ClientAccountController implements Initializable {
+
     @FXML
     private TableView<?> codesTable;
+
+    @FXML
+    private Button openPlaceBTN;
+
+    @FXML
+    private TextField addressFLD;
 
     @FXML
     private Label lastNameLBL;
 
     @FXML
+    private Button exitBTN;
+
+    @FXML
     private Label emailLBL;
+
+    @FXML
+    private Button searchBTN;
 
     @FXML
     private Label nameLBL;
 
     @FXML
-    private TableColumn<?, ?> codesCol;
+    private Label searchAddressErrorLBL;
+
+    @FXML
+    private TableColumn<Place,String> codesCol;
 
     @FXML
     private Label phoneNumberLBL;
@@ -42,15 +61,19 @@ public class ClientAccountController implements Initializable {
     private Label walletLBL;
 
     @FXML
-    private Button exitBTN;
+    private Label inviteErrorLBL;
+
+    @FXML
+    private Button inviteFriendBTN;
 
     @FXML
     private TabPane tabPane;
 
     @FXML
-    private Label inviteErrorLBL;
+    private TableColumn<Place, String> placeNameCol;
+
     @FXML
-    private Button inviteFriendBTN;
+    private TableView<Place> placeNameTable;
 
     @FXML
     private TextField inviteFriendFLD;
@@ -98,7 +121,42 @@ public class ClientAccountController implements Initializable {
                 inviteErrorLBL.setText("invalid email");
             }
         });
+        //--Order Food Tab
+        placeNameCol.setCellValueFactory(new PropertyValueFactory<Place,String>("name"));
+        searchBTN.setOnAction(e -> {
+            if (!addressFLD.getText().isEmpty())
+            {
+                refresh();
+            }
+            else
+            {
+                searchAddressErrorLBL.setTextFill(Color.RED);
+                searchAddressErrorLBL.setText("You Have Empty Field");
+                searchAddressErrorLBL.setStyle("-fx-border-color: red");
+            }
+        });
 
+        openPlaceBTN.setOnAction( e -> {
+            Place chosenPlace = placeNameTable.getSelectionModel().getSelectedItem();
+            if (chosenPlace != null)
+            {
+                try {
+
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/openRestaurantOrCafePage.fxml"));
+                    OpenCafeForOrderController controller = new OpenCafeForOrderController();
+                    controller.initPlace(chosenPlace,loggedClient);
+                    loader.setController(controller);
+                    loader.load();
+                    Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+                    Scene scene = new Scene(loader.getRoot());
+                    stage.setScene(scene);
+                    stage.show();
+
+                } catch(Exception ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+        });
     }
 
     public void initLoggedUser(Client loggedClient)
@@ -186,5 +244,17 @@ public class ClientAccountController implements Initializable {
         }
 
     }
+    public void refresh()
+    {
+        placeNameTable.getItems().clear();
+        for (Place place : Place.places)
+        {
+            if (addressFLD.getText().equals(place.getAddress()))
+            {
+                placeNameTable.getItems().add(place);
+            }
+        }
+    }
+
 
 }

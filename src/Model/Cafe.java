@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 public class Cafe extends Place{
 
-    public static ArrayList<Cafe> cafes = new ArrayList<>();
-
 
     private ArrayList<FoodCategory> foodCategories = new ArrayList<>();
 
